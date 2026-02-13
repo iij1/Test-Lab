@@ -1,15 +1,26 @@
 #!/bin/bash
 
-# إنشاء صفحة بسيطة
-echo "<h1>Codespace is Live!</h1>" > index.html
+sudo apt update
 
-# تركيب الرابط العام (Public URL)
-PUBLIC_URL="https://${CODESPACE_NAME}-8080.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}"
+# أدوات أساسية
+sudo apt install -y \
+  git \
+  curl \
+  wget \
+  net-tools \
+  nmap \
+  nano \
+  vim \
+  python3 \
+  python3-pip \
+  nodejs \
+  npm
 
-# إرسال الرابط للـ Webhook
-curl -X POST -H "Content-Type: application/json" \
-     -d "{\"status\": \"active\", \"url\": \"$PUBLIC_URL\"}" \
-     https://webhook.site/ffc97016-a837-4a5e-9e04-18f739088042
+# مثال Web Lab بسيط
+mkdir -p ~/web-lab
+cat <<EOF > ~/web-lab/index.html
+<h1>Welcome to Buad CTF Lab</h1>
+<p>Try to find the hidden flag 👀</p>
+EOF
 
-# تشغيل السيرفر في الخلفية
-nohup python3 -m http.server 8080 &
+echo "Lab Ready 🚀"
