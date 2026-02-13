@@ -1,11 +1,16 @@
 {
-  "name": "Auto Webhook Project",
-  "forwardPorts": [8080],
-  "portsAttributes": {
-    "8080": {
-      "label": "Auto Server",
-      "visibility": "public"
-    }
+  "name": "Buad Ubuntu Lab",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
-  "postCreateCommand": "bash .devcontainer/setup.sh"
+  "postCreateCommand": "bash setup.sh",
+  "forwardPorts": [8000, 3000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Web Lab",
+      "onAutoForward": "openPreview"
+    }
+  }
 }
