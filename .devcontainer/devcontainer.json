@@ -1,0 +1,11 @@
+{
+  "name": "Auto Webhook Project",
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "Auto Server",
+      "visibility": "public"
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh"
+}
